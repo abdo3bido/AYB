@@ -35,35 +35,33 @@ $(document).ready(function(){
         document.getElementById("description").value="";
     }
     var pic = document.getElementById("pic1");
-    function imageUpload()
+    var flag = 0;
+    var urls =[];
+    function imageUpload(callback)
     {
-        var flag = 0;
-        var urls =[];
-        for(var x=0;x<pic.files.length;x++){
+        
 	    var d = new Date();
             var _date = d.getTime();
             var mime = "";
-            if(pic.files[x].name.split(".").length>0){
-                mime = "." + pic.files[x].name.split(".")[1];
+            if(pic.files[0].name.split(".").length>0){
+                mime = "." + pic.files[0].name.split(".")[1];
             }
 	        var name = _date.toString()+mime;
             var storageRef = storage.ref();
             var picRef = storageRef.child(name); 
-            picRef.put(pic.files[x]).then(function(snapshot){
-                if(snapshot.state!="success"){
-                    flag = 1;
+            picRef.put(pic.files[0]).then(function(snapshot){
+                if(snapshot.state=="success"){
+                    storageRef.child(name).getDownloadURL().then(function(url) {
+                        urls.push(url);
+                        firebaseWrite(urls);
+                        console.log(urls[0]);
+                        
+                    });
                 }
+                else{alert("Image Upload failed");}
             });
             
-            urls.push(name);
-        }
-        if(flag == 0){
-            firebaseWrite(urls);
-
-        }
-        else{alert("Image Upload failed");}
-
+//            urls.push(name);
         
-    
 }
 });
