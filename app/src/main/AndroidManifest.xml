@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shalabyapps.aybt1">
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -21,7 +22,11 @@
             android:label="@string/title_activity_main2" />
         <activity
             android:name=".Main3Activity"
-            android:label="@string/title_activity_main3"></activity>
+            android:label="@string/title_activity_main3" />
+        <activity android:name=".homeActivity" />
+        <activity
+            android:name=".Main4Activity"
+            android:label="@string/title_activity_main4" />
+        <activity android:name=".listItem"></activity>
     </application>
-
 </manifest>
