@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AYB</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="donations">Donations</string>
+    <string name="events">Events</string>
+    <string name="home">Home</string>
+    <string name="AboutAyb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis blandit est ut facilisis. Sed malesuada lacus orci. Vivamus nec elit vel odio luctus faucibus vitae vel tellus. Donec iaculis accumsan justo, sed eleifend dui pellentesque eget. Morbi eleifend turpis lacus, in vehicula libero facilisis a. Aenean vitae rutrum dolor. Morbi sed metus pellentesque, placerat dui non, molestie neque.
+
+Aliquam in sapien suscipit, maximus erat ut, luctus tellus. Maecenas aliquam eleifend urna ac convallis. Sed sit amet auctor orci. Cras placerat in ex et dictum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras mi risus, luctus ac odio sed, pellentesque tincidunt lacus. Praesent accumsan, massa et malesuada aliquam, dolor risus vestibulum risus, ultrices consectetur leo dui vitae libero. Ut aliquam sem dolor, et maximus ante ultrices sed. Nullam condimentum tellus et nisl sagittis, at elementum dui eleifend.
+
+Duis ullamcorper ipsum a tellus ornare, eget convallis tortor convallis. Etiam et neque eros. Phasellus ac egestas ipsum. Donec cursus venenatis lectus, nec ornare nisl tincidunt quis. Praesent massa velit, fermentum ut leo ac, viverra mollis nisl. In dignissim odio mauris, feugiat viverra nisl commodo nec. Duis sed dolor at lorem interdum maximus non eu ipsum. Etiam ut lacus at dui ornare scelerisque et eget purus. Nulla facilisi. Vivamus sed metus volutpat, tempus risus eu, semper elit. Quisque dapibus interdum porta. In egestas in ex eget porttitor. Pellentesque vel elit eget massa rhoncus aliquam nec non orci. Vivamus vitae lectus quis purus ultricies laoreet. Vestibulum augue dui, sollicitudin non nisi sit amet, venenatis eleifend tellus.
+
+Nam ligula metus, sollicitudin sed sem eu, mattis volutpat lacus. Nunc ultrices nec ex id pulvinar. Vivamus at lectus malesuada, accumsan tortor sit amet, dapibus risus. Fusce auctor rhoncus nulla, efficitur molestie orci. Nulla congue consectetur sagittis. Donec varius libero nec ligula sodales lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor nulla massa, sed blandit erat tempus sed. Suspendisse semper facilisis dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula lacus at sem aliquet, non aliquet libero auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum a ante ante. Nunc a lacus vel erat pharetra sodales et eu mauris.
+
+Cras tincidunt imperdiet mi, eu blandit elit sollicitudin id. Aliquam congue nibh et porttitor hendrerit. Duis consectetur eleifend eros, vitae commodo tortor ultricies id. Ut ut gravida arcu. Donec eu dui tempor, pulvinar libero at, dapibus nulla. Nulla consectetur diam quis ipsum cursus tincidunt. Morbi vitae vehicula enim, nec mollis ex. In faucibus sollicitudin viverra. Mauris nulla diam, sagittis nec justo a, volutpat pellentesque lectus. Pellentesque ac blandit enim. Sed diam enim, mattis a lorem sit amet, pharetra elementum mauris.</string>
+    <string name="title_activity_donations">Donations</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
