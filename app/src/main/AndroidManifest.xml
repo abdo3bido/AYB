@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shalabyapps.aybt1">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,9 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2" />
@@ -22,13 +21,15 @@
         <activity android:name=".homeActivity" />
         <activity
             android:name=".Main4Activity"
-            android:label="@string/title_activity_main4" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:label="@string/title_activity_main4">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".listItem"></activity>
+        <activity android:name=".listItem" />
+        <activity android:name=".caseActivity"></activity>
     </application>
+
 </manifest>
