@@ -21,13 +21,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import com.google.firebase.database.ValueEventListener;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -99,10 +100,12 @@ public class Donations extends AppCompatActivity  {
         public void onCancelled(@NonNull DatabaseError databaseError) {
 
         }
-    };
-     mDatabase.addValueEventListener(listener)
 
-}
+
+    };mDatabase.addValueEventListener(listener);
+
+
+
 
     void getPics(List<cases> _cases){
         StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -136,8 +139,6 @@ public class Donations extends AppCompatActivity  {
         rv.setItemAnimator(new DefaultItemAnimator());
         Log.d("Finalcases",finalCases.toString());
     }
-
-
 
 
 }
