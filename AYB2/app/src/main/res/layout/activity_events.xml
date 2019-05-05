@@ -1,0 +1,58 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout2"
+    android:fitsSystemWindows="true"
+    >
+
+ <!--Main content-->
+ <android.support.design.widget.CoordinatorLayout
+     android:orientation="vertical"
+     android:id="@+id/main_content_events"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:background="#710000">
+
+
+  <android.support.design.widget.AppBarLayout
+      android:layout_height="@dimen/_100sdp"
+      android:layout_width="match_parent"
+      android:fitsSystemWindows="true"
+      android:background="@android:color/transparent"
+      app:elevation="0dp"
+      android:layout_marginTop="@dimen/_20sdp">
+   <!--Toolbar-->
+
+
+
+   <android.support.v7.widget.Toolbar
+       android:layout_height="@dimen/_45sdp"
+       android:layout_width="@dimen/_280sdp"
+       android:background="@drawable/toolbar_02"
+       app:theme="@style/AppTheme.AppBarOverlay"
+       android:minHeight="?attr/actionBarSize"
+       android:padding="@dimen/_2sdp"
+       android:layout_gravity="top"
+       android:id="@+id/toolbar_events"
+       app:titleTextColor="#dadaaeae"
+       app:titleMarginStart="@dimen/_60sdp"
+       app:titleMarginTop="@dimen/_5sdp"
+
+
+       android:layout_marginLeft="@dimen/_11sdp"
+
+       />
+
+  </android.support.design.widget.AppBarLayout>
+
+  <android.support.v4.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"></android.support.v4.widget.NestedScrollView>
+
+ </android.support.design.widget.CoordinatorLayout>
+
+
+
+</android.support.v4.widget.DrawerLayout>

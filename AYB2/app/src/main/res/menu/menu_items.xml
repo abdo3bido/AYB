@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+   <group>
+
+        <item android:id="@+id/Donations"
+            android:checkable="true"
+            android:icon="@drawable/ic_donations"
+            android:title="@string/donations"/>
+
+        <item android:id="@+id/Events"
+            android:checkable="true"
+            android:icon="@drawable/ic_about_us"
+            android:title="@string/events"/>
+   </group>
+</menu>
