@@ -1,6 +1,7 @@
 package com.example.abdelrhman.ayb;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -22,23 +23,35 @@ public class listAdapter extends RecyclerView.Adapter<listAdapter.lAViewHolder> 
     public listAdapter(List<cases> casesList) {
         this.casesList = casesList;
     }
+    LayoutInflater inflater;
 
     @NonNull
     @Override
     public lAViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Context context  = viewGroup.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
+         inflater = LayoutInflater.from(context);
         View itemView = inflater.inflate(R.layout.activity_list_item,viewGroup,false);
         return new lAViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull lAViewHolder _lAViewHolder, int i) {
+    public void onBindViewHolder(@NonNull lAViewHolder _lAViewHolder, final int i) {
         _lAViewHolder.cTitle.setText(casesList.get(i).getTitle());
-        _lAViewHolder.cDesc.setText(casesList.get(i).getDescription());
+//        _lAViewHolder.cDesc.setText(casesList.get(i).getDescription());
         _lAViewHolder.cType.setText(casesList.get(i).getCaseType());
 //        _lAViewHolder.cImg.setImageURI(Uri.parse(casesList.get(i).getURLs().get(0)));
         Picasso.get().load(casesList.get(i).getURLs().get(0)).into(_lAViewHolder.cImg);
+        _lAViewHolder.cImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(inflater.getContext(),Case.class);
+                intent.putExtra("title",casesList.get(i).getTitle());
+                intent.putExtra("desc",casesList.get(i).getDescription());
+                intent.putExtra("type",casesList.get(i).getCaseType());
+                intent.putExtra("url",casesList.get(i).getURLs().get(0));
+                inflater.getContext().startActivity(intent);
+            }
+        });
 
 
     }

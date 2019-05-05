@@ -1,5 +1,6 @@
 package com.example.abdelrhman.ayb;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -9,6 +10,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -21,8 +23,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import com.google.firebase.database.ValueEventListener;
 
+import com.google.firebase.database.ValueEventListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -41,6 +43,7 @@ public class Donations extends AppCompatActivity  {
 
     private Toolbar mToolbar;
     DatabaseReference mDatabase;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +51,53 @@ public class Donations extends AppCompatActivity  {
         setContentView(R.layout.activity_donations);
         mDatabase = FirebaseDatabase.getInstance().getReference("/cases");
         mToolbar = (Toolbar) findViewById(R.id.toolbar_Donations);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Uploading");
+        progressDialog.show();
         initToolbar();
+
+        ValueEventListener listener = new ValueEventListener(){
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot caseSnapshot: dataSnapshot.getChildren()) {
+
+                    cases _case=new cases();
+                    HashMap<String, String> rawData = (HashMap) caseSnapshot.getValue();
+                    HashMap<String, List<String>> rawData2 = (HashMap) caseSnapshot.getValue();
+                    Log.d("rawData", rawData.toString());
+                    Log.d("rawData2", rawData2.toString());
+                    Log.d("Title",rawData.get("Title").toString());
+                    _case.setTitle(rawData.get("Title"));
+                    _case.setCaseType(rawData.get("CaseType"));
+                    _case.setDescription(rawData.get("Description"));
+                    ArrayList<String> urls = new ArrayList<>();
+                    int i =0;
+                    for(String url: (List<String>)rawData2.get("urls")){
+                        urls.add(url);
+                        i++;
+                    }
+                    _case.setURLs(urls);
+                    _cases.add(_case);
+                }
+                RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
+                listAdapter adapter = new listAdapter(_cases);
+                rv.setAdapter(adapter);
+                LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
+                rv.setLayoutManager(manager);
+                rv.setItemAnimator(new DefaultItemAnimator());
+                Log.d("Cases",_cases.get(0).getURLs().get(0).toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+
+        };
+
+        mDatabase.addValueEventListener(listener);
+
 
     }
     public void initToolbar(){
@@ -62,47 +111,11 @@ public class Donations extends AppCompatActivity  {
             }
         });
 
+
     }
     final List<cases> _cases = new ArrayList<>();
-    ValueEventListener listener = new ValueEventListener(){
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            for(DataSnapshot caseSnapshot: dataSnapshot.getChildren()) {
-
-                cases _case=new cases();
-                HashMap<String, String> rawData = (HashMap) caseSnapshot.getValue();
-                HashMap<String, List<String>> rawData2 = (HashMap) caseSnapshot.getValue();
-                Log.d("rawData", rawData.toString());
-                Log.d("rawData2", rawData2.toString());
-                Log.d("Title",rawData.get("Title").toString());
-                _case.setTitle(rawData.get("Title"));
-                _case.setCaseType(rawData.get("CaseType"));
-                _case.setDescription(rawData.get("Description"));
-                ArrayList<String> urls = new ArrayList<>();
-                int i =0;
-                for(String url: (List<String>)rawData2.get("urls")){
-                    urls.add(url);
-                    i++;
-                }
-                _case.setURLs(urls);
-                _cases.add(_case);
-            }
-            RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
-            listAdapter adapter = new listAdapter(_cases);
-            rv.setAdapter(adapter);
-            LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
-            rv.setLayoutManager(manager);
-            rv.setItemAnimator(new DefaultItemAnimator());
-            Log.d("Cases",_cases.get(0).getURLs().get(0).toString());
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        }
 
 
-    };mDatabase.addValueEventListener(listener);
 
 
 
@@ -138,7 +151,9 @@ public class Donations extends AppCompatActivity  {
         rv.setLayoutManager(manager);
         rv.setItemAnimator(new DefaultItemAnimator());
         Log.d("Finalcases",finalCases.toString());
+        progressDialog.dismiss();
     }
+
 
 
 }

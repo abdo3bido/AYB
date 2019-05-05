@@ -26,7 +26,6 @@
             <!--Toolbar-->
 
 
-
             <android.support.v7.widget.Toolbar
                 android:layout_height="@dimen/_45sdp"
                 android:layout_width="@dimen/_280sdp"
@@ -46,18 +45,18 @@
 
                 />
 
+
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.v4.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+                android:layout_height="match_parent"
+                android:layout_marginTop="120dp"></android.support.v7.widget.RecyclerView>
 
 
-        </android.support.v4.widget.NestedScrollView>
 
 
     </android.support.design.widget.CoordinatorLayout>
