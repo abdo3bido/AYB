@@ -52,7 +52,7 @@ public class Donations extends AppCompatActivity  {
         mDatabase = FirebaseDatabase.getInstance().getReference("/cases");
         mToolbar = (Toolbar) findViewById(R.id.toolbar_Donations);
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Uploading");
+        progressDialog.setMessage("Loading");
         progressDialog.show();
         initToolbar();
 
@@ -86,6 +86,7 @@ public class Donations extends AppCompatActivity  {
                 rv.setLayoutManager(manager);
                 rv.setItemAnimator(new DefaultItemAnimator());
                 Log.d("Cases",_cases.get(0).getURLs().get(0).toString());
+                progressDialog.dismiss();
             }
 
             @Override
